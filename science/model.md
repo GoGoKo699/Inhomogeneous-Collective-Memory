@@ -91,7 +91,7 @@ Its error is
 
 ```math
 \epsilon_{\mathrm{mem}}(n,t)
-=\frac12\left\|\mathcal M_{n,t}-\operatorname{id}_{2^k}
+=\frac12\left\|\mathcal M_{n,t}-\mathrm{id}_{2^k}
 \right\|_\diamond.
 ```
 
@@ -103,7 +103,7 @@ Some physical spins are left unused when forming blocks. They remain included in
 
 ## 4. Consequence of the theorem
 
-For every fixed target rate $`R<1`$ and error $`0<\epsilon<1`$, the theorem supplies constants $`c_{R,\epsilon}>0`$ and $`n_0`$ such that every supplied coefficient list in $`[1,2]^n`$, with $`n\ge n_0`$, admits storage of at least $`Rn`$ logical qubits with
+For every fixed target rate $`R\lt 1`$ and error $`0\lt \epsilon\lt 1`$, the theorem supplies constants $`c_{R,\epsilon}>0`$ and $`n_0`$ such that every supplied coefficient list in $`[1,2]^n`$, with $`n\ge n_0`$, admits storage of at least $`Rn`$ logical qubits with
 
 ```math
 \epsilon_{\mathrm{mem}}(n,t)\le\epsilon

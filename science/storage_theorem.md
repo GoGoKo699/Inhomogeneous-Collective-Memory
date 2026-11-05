@@ -55,7 +55,7 @@ Assume $`s\le M-1`$, and put $`k=M-s`$.
 \begin{aligned}
 \epsilon_{\mathrm{mem}}(n,t)
 &=\frac12\left\|\mathcal M_{n,t}
-                 -\operatorname{id}_{2^k}\right\|_\diamond\\
+                 -\mathrm{id}_{2^k}\right\|_\diamond\\
 &\le
 \min\left\{
 1,\,
@@ -92,7 +92,7 @@ Take
 ```math
 I_\ell=
 \left[1+\frac{\ell-1}{B},\,1+\frac{\ell}{B}\right)
-\quad(1\le\ell<B),
+\quad(1\le\ell\lt B),
 \qquad
 I_B=\left[2-\frac1B,\,2\right].
 ```
@@ -135,7 +135,7 @@ Grouping is by supplied coefficient values. Spins in the same block need not be 
 For $`m`$ spins, let $`P_m`$ project onto the full total-spin-zero subspace. Its dimension is
 
 ```math
-\operatorname{rank}P_m
+\mathrm{rank}P_m
 =\binom{m}{m/2}-\binom{m}{m/2+1}
 =D_m.
 ```
@@ -148,10 +148,10 @@ Choose any fixed isometry
 E_b:\mathbb C^{2^{k_m}}\longrightarrow P_m\mathcal H_b,
 \qquad Q_b=E_bE_b^\dagger\le P_m,
 \qquad
-\operatorname{Enc}_b(X)=E_bXE_b^\dagger.
+\mathrm{Enc}_b(X)=E_bXE_b^\dagger.
 ```
 
-No optimization over this subspace is required. The factor $`\rho_m<2`$ accounts for using a power-of-two logical dimension within the full singlet sector.
+No optimization over this subspace is required. The factor $`\rho_m\lt 2`$ accounts for using a power-of-two logical dimension within the full singlet sector.
 
 For each Pauli axis $`\alpha`$, the collective operator $`J_{\alpha,b}=\sum_{j\in b}\sigma_{\alpha,j}`$ annihilates that sector, and every collective rotation acts there as identity. This is the standard noiseless-code mechanism for exactly collective noise; see [Zanardi and Rasetti (1997)](https://arxiv.org/abs/quant-ph/9705044).
 
@@ -194,23 +194,23 @@ For any trace-class logical input operator $`X`$, including an arbitrary referen
 
 ```math
 \left\|\mathcal D[A_{\alpha,b}]
-        \circ\operatorname{Enc}_b\right\|_\diamond
+        \circ\mathrm{Enc}_b\right\|_\diamond
 \le2d_b^2.
 ```
 
 Let $`\mathcal L_b=\sum_\alpha\gamma_\alpha\mathcal D[A_{\alpha,b}]`$ and $`\Phi_{b,t}=e^{t\mathcal L_b}`$. Duhamel's identity gives
 
 ```math
-(\Phi_{b,t}-\operatorname{id})\circ\operatorname{Enc}_b
+(\Phi_{b,t}-\mathrm{id})\circ\mathrm{Enc}_b
 =\int_0^t e^{u\mathcal L_b}
-       \circ\mathcal L_b\circ\operatorname{Enc}_b\,du.
+       \circ\mathcal L_b\circ\mathrm{Enc}_b\,du.
 ```
 
 Each $`e^{u\mathcal L_b}`$ is a channel and has diamond norm one. Therefore,
 
 ```math
 \frac12\left\|
-\Phi_{b,t}\circ\operatorname{Enc}_b-\operatorname{Enc}_b
+\Phi_{b,t}\circ\mathrm{Enc}_b-\mathrm{Enc}_b
 \right\|_\diamond
 \le\min\{1,\Gamma t d_b^2\}.
 ```
@@ -220,12 +220,12 @@ This holds for every time and every reference-entangled input. It is not a short
 Choose a fixed logical state $`\tau_b`$ and the final inner decoder
 
 ```math
-\operatorname{Dec}_b(Y)
+\mathrm{Dec}_b(Y)
 =E_b^\dagger YE_b+
- \operatorname{Tr}[(I-Q_b)Y]\tau_b.
+ \mathrm{Tr}[(I-Q_b)Y]\tau_b.
 ```
 
-This channel is trace preserving, is a left inverse of $`\operatorname{Enc}_b`$, and replaces leakage by a fixed logical state. Contraction under the decoder preserves the bound above. The next section gives a stronger bound for the particular fidelity used by outer coding.
+This channel is trace preserving, is a left inverse of $`\mathrm{Enc}_b`$, and replaces leakage by a fixed logical state. Contraction under the decoder preserves the bound above. The next section gives a stronger bound for the particular fidelity used by outer coding.
 
 ## 4. Sharper marginal entanglement-infidelity bound
 
@@ -243,7 +243,7 @@ Its physical survival probability is
 ```math
 F_{\mathrm{surv},b}(t)
 =\left\langle\omega_b,\,
-(\Phi_{b,t}\otimes\operatorname{id})(\omega_b)
+(\Phi_{b,t}\otimes\mathrm{id})(\omega_b)
 \right\rangle_{\mathrm{HS}}.
 ```
 
@@ -256,7 +256,7 @@ For Hermitian $`A`$,
 =-\frac12\|[A,Y]\|_2^2.
 ```
 
-Thus $`\mathcal L_b\otimes\operatorname{id}`$ is self-adjoint and negative semidefinite on Hilbert–Schmidt operator space. As $`\|\omega_b\|_2^2=1`$, its spectral decomposition gives nonnegative $`w_\ell`$ summing to one and $`\lambda_\ell\ge0`$ such that
+Thus $`\mathcal L_b\otimes\mathrm{id}`$ is self-adjoint and negative semidefinite on Hilbert–Schmidt operator space. As $`\|\omega_b\|_2^2=1`$, its spectral decomposition gives nonnegative $`w_\ell`$ summing to one and $`\lambda_\ell\ge0`$ such that
 
 ```math
 F_{\mathrm{surv},b}(t)
@@ -270,11 +270,11 @@ The last step is Jensen's inequality. The initial mean loss rate is
 \begin{aligned}
 \sum_\ell w_\ell\lambda_\ell
 &=-\langle\omega_b,
-(\mathcal L_b\otimes\operatorname{id})(\omega_b)\rangle\\
+(\mathcal L_b\otimes\mathrm{id})(\omega_b)\rangle\\
 &=\sum_\alpha\gamma_\alpha
 \left[
-\frac{\operatorname{Tr}(Q_bA_{\alpha,b}^2)}d
--\left|\frac{\operatorname{Tr}(Q_bA_{\alpha,b})}d\right|^2
+\frac{\mathrm{Tr}(Q_bA_{\alpha,b}^2)}d
+-\left|\frac{\mathrm{Tr}(Q_bA_{\alpha,b})}d\right|^2
 \right].
 \end{aligned}
 ```
@@ -285,10 +285,10 @@ A collective $`\pi`$ rotation about an axis perpendicular to $`\alpha`$ fixes ev
 
 This established singlet moment also follows from the reduced states in [Urizar-Lanz et al. (2013), Eqs. (10), (16)–(18)](https://www.gtoth.eu/Publications/PRA13_singlet.pdf).
 
-The full projector $`P_m`$ is invariant under permutations. The value of $`\operatorname{Tr}(P_m\sigma_{\alpha,i}\sigma_{\alpha,j})/D_m`$ is therefore the same for every distinct pair. Taking the trace of $`J_{\alpha,b}^2P_m=0`$ gives
+The full projector $`P_m`$ is invariant under permutations. The value of $`\mathrm{Tr}(P_m\sigma_{\alpha,i}\sigma_{\alpha,j})/D_m`$ is therefore the same for every distinct pair. Taking the trace of $`J_{\alpha,b}^2P_m=0`$ gives
 
 ```math
-\frac{\operatorname{Tr}
+\frac{\mathrm{Tr}
 (P_m\sigma_{\alpha,i}\sigma_{\alpha,j})}{D_m}
 =-\frac1{m-1}\qquad(i\ne j).
 ```
@@ -297,7 +297,7 @@ Expanding the weighted square yields
 
 ```math
 \begin{aligned}
-\frac{\operatorname{Tr}(P_mA_{\alpha,b}^2)}{D_m}
+\frac{\mathrm{Tr}(P_mA_{\alpha,b}^2)}{D_m}
 &=\sum_jg_j^2-\frac1{m-1}\sum_{i\ne j}g_ig_j\\
 &=\frac{m}{m-1}
   \sum_{j\in b}(g_j-\bar g_b)^2.
@@ -307,16 +307,16 @@ Expanding the weighted square yields
 Since $`Q_b\le P_m`$ and $`A_{\alpha,b}^2`$ is positive,
 
 ```math
-\frac{\operatorname{Tr}(Q_bA_{\alpha,b}^2)}d
+\frac{\mathrm{Tr}(Q_bA_{\alpha,b}^2)}d
 \le\rho_m
-\frac{\operatorname{Tr}(P_mA_{\alpha,b}^2)}{D_m}.
+\frac{\mathrm{Tr}(P_mA_{\alpha,b}^2)}{D_m}.
 ```
 
 Summing the axes proves $`F_{\mathrm{surv},b}(t)\ge e^{-\mu_bt}`$.
 
 ### Passing to the logical channel
 
-Let $`\mathcal N_b=\operatorname{Dec}_b\circ\Phi_{b,t}\circ\operatorname{Enc}_b`$, and let $`F_{e,b}`$ be its entanglement fidelity for the maximally mixed logical input. The decoder has a Kraus operator $`E_b^\dagger`$. Its contribution to that fidelity is exactly the physical survival probability; the leakage-replacement Kraus operators add nonnegative terms. Hence
+Let $`\mathcal N_b=\mathrm{Dec}_b\circ\Phi_{b,t}\circ\mathrm{Enc}_b`$, and let $`F_{e,b}`$ be its entanglement fidelity for the maximally mixed logical input. The decoder has a Kraus operator $`E_b^\dagger`$. Its contribution to that fidelity is exactly the physical survival probability; the leakage-replacement Kraus operators add nonnegative terms. Hence
 
 ```math
 p_b:=1-F_{e,b}
@@ -338,22 +338,22 @@ A_\alpha=A_{\alpha,S}\otimes I_T+
 For every operator $`Y`$, including one correlated with a reference,
 
 ```math
-\operatorname{Tr}_T
+\mathrm{Tr}_T
 [I_S\otimes A_{\alpha,T},Y]=0.
 ```
 
 Using $`\mathcal D[A](Y)=-[A,[A,Y]]/2`$, expand the double commutator. The terms containing one or two commutators with $`A_{\alpha,T}`$ vanish under the partial trace, leaving
 
 ```math
-\operatorname{Tr}_T\mathcal D[A_\alpha](Y)
-=\mathcal D[A_{\alpha,S}](\operatorname{Tr}_TY).
+\mathrm{Tr}_T\mathcal D[A_\alpha](Y)
+=\mathcal D[A_{\alpha,S}](\mathrm{Tr}_TY).
 ```
 
 Summing over axes and exponentiating this intertwining identity gives
 
 ```math
-\operatorname{Tr}_T\circ\Phi_{n,t}
-=\Phi_{S,t}\circ\operatorname{Tr}_T.
+\mathrm{Tr}_T\circ\Phi_{n,t}
+=\Phi_{S,t}\circ\mathrm{Tr}_T.
 ```
 
 The marginal channel on a block is therefore exactly its local collective semigroup, regardless of the other input blocks. This does not assert independence of their noise. It also justifies initializing the unused spins in a fixed state and tracing them out at recovery.
@@ -362,16 +362,16 @@ The product inner encoder and decoder define a channel on the $`M`$ inner logica
 
 ```math
 \mathcal N
-=\left(\bigotimes_b\operatorname{Dec}_b\right)
+=\left(\bigotimes_b\mathrm{Dec}_b\right)
  \circ\Phi_{N,t}
- \circ\left(\bigotimes_b\operatorname{Enc}_b\right).
+ \circ\left(\bigotimes_b\mathrm{Enc}_b\right).
 ```
 
 Trace preservation of the other endpoint maps implies the exact marginal property
 
 ```math
-\operatorname{Tr}_{\ne b}\circ\mathcal N
-=\mathcal N_b\circ\operatorname{Tr}_{\ne b}.
+\mathrm{Tr}_{\ne b}\circ\mathcal N
+=\mathcal N_b\circ\mathrm{Tr}_{\ne b}.
 ```
 
 ## 6. Global Pauli twirling and correlated-error correction
@@ -397,7 +397,7 @@ q_Q=\sum_a|c_{aQ}|^2\ge0,\qquad
 
 The last identity follows from trace preservation and orthogonality of the Pauli basis. This distribution can have arbitrary correlations among blocks.
 
-The marginal property in Section 5 implies that the distribution of the Pauli factor on block $`b`$ is the twirl of $`\mathcal N_b`$. For a Pauli channel, entanglement fidelity equals the identity-Pauli probability, because all other Pauli operators have zero trace. Entanglement fidelity is unchanged by twirling, as is also immediate from $`F_e(\mathcal N_b)=d^{-2}\sum_a|\operatorname{Tr}K_a|^2`$. Consequently,
+The marginal property in Section 5 implies that the distribution of the Pauli factor on block $`b`$ is the twirl of $`\mathcal N_b`$. For a Pauli channel, entanglement fidelity equals the identity-Pauli probability, because all other Pauli operators have zero trace. Entanglement fidelity is unchanged by twirling, as is also immediate from $`F_e(\mathcal N_b)=d^{-2}\sum_a|\mathrm{Tr}K_a|^2`$. Consequently,
 
 ```math
 \Pr(Q|_b\ne I)=p_b\le1-e^{-\mu_bt}.
@@ -405,10 +405,10 @@ The marginal property in Section 5 implies that the distribution of the Pauli fa
 
 ### The outer threshold counts logical qubits
 
-Write $`\operatorname{wt}(Q)`$ for the number of nonidentity single-qubit factors in $`Q`$. A nonidentity inner block can contain as many as $`k_m`$ such factors. Thus
+Write $`\mathrm{wt}(Q)`$ for the number of nonidentity single-qubit factors in $`Q`$. A nonidentity inner block can contain as many as $`k_m`$ such factors. Thus
 
 ```math
-\mathbb E[\operatorname{wt}(Q)]
+\mathbb E[\mathrm{wt}(Q)]
 \le k_m\sum_b\Pr(Q|_b\ne I)
 \le k_m\sum_b(1-e^{-\mu_bt}).
 ```
@@ -419,15 +419,15 @@ Choose an outer code correcting every Pauli error of weight at most $`h`$. Integ
 
 ```math
 p_{\mathrm{bad}}
-:=\Pr(\operatorname{wt}(Q)>h)
-\le\frac{\mathbb E[\operatorname{wt}(Q)]}{h+1}.
+:=\Pr(\mathrm{wt}(Q)>h)
+\le\frac{\mathbb E[\mathrm{wt}(Q)]}{h+1}.
 ```
 
 Every Pauli in the complementary event is corrected exactly, for all reference-entangled inputs. The recovered channel has the form
 
 ```math
 \mathcal M_{n,t}
-=(1-p_{\mathrm{bad}})\operatorname{id}
+=(1-p_{\mathrm{bad}})\mathrm{id}
 +p_{\mathrm{bad}}\mathcal B
 ```
 
@@ -459,11 +459,11 @@ There are $`V(M,h)-1`$ nonzero Paulis of weight at most $`2h`$. If $`s>0`$, unio
 ```math
 \begin{aligned}
 \Pr\bigl(\exists\,v\in S^\perp\setminus\{0\}:
-             \operatorname{wt}(v)\le2h\bigr)
+             \mathrm{wt}(v)\le2h\bigr)
 &\le
 (V(M,h)-1)\frac{2^{2M-s}-1}{2^{2M}-1}\\
-&<(V(M,h)-1)2^{-s}\\
-&\le\frac{V(M,h)-1}{V(M,h)}<1.
+&\lt (V(M,h)-1)2^{-s}\\
+&\le\frac{V(M,h)-1}{V(M,h)}\lt 1.
 \end{aligned}
 ```
 
@@ -484,7 +484,7 @@ H_2(x)=-x\log_2x-(1-x)\log_2(1-x),\qquad
 f(q)=H_2(2q)+2q\log_2 3.
 ```
 
-Fix $`0<R<1`$ and $`0<\epsilon<1`$. Choose fixed even $`m\ge4`$, $`C>1`$, and $`q\in(0,1/4)`$ such that
+Fix $`0\lt R\lt 1`$ and $`0\lt \epsilon\lt 1`$. Choose fixed even $`m\ge4`$, $`C>1`$, and $`q\in(0,1/4)`$ such that
 
 ```math
 a:=\left(1-\frac1C\right)\frac{k_m}{m},\qquad
@@ -510,7 +510,7 @@ Then every $`n\ge n_0`$ and every coefficient list in $`[1,2]^n`$ admit storage 
 0\le t\le c_{R,\epsilon}n^2.
 ```
 
-For the rate proof, put $`r=2h\le2qM<M/2`$. The binomial-volume estimate and $`3^j\le3^r`$ imply
+For the rate proof, put $`r=2h\le2qM\lt M/2`$. The binomial-volume estimate and $`3^j\le3^r`$ imply
 
 ```math
 \sum_{j=0}^r\binom Mj\le2^{MH_2(r/M)},\qquad
@@ -550,7 +550,7 @@ m_n=2\left\lfloor\frac{u_n}{2}\right\rfloor,\qquad
 q_n=\frac1{u_n}.
 ```
 
-Both $`r_n`$ and $`u_n`$ diverge. Eventually $`m_n\ge4`$, $`q_n<1/4`$, $`f(q_n)<1`$, and $`n\ge2C_nm_n`$. Use $`h_n=\lfloor q_nM_n\rfloor`$ and the finite construction. Its rate satisfies
+Both $`r_n`$ and $`u_n`$ diverge. Eventually $`m_n\ge4`$, $`q_n\lt 1/4`$, $`f(q_n)\lt 1`$, and $`n\ge2C_nm_n`$. Use $`h_n=\lfloor q_nM_n\rfloor`$ and the finite construction. Its rate satisfies
 
 ```math
 \frac{k_n}{n}
@@ -604,8 +604,8 @@ Suppose the averaged recovered channel on $`D=2^k`$ dimensions obeys
 
 ```math
 \frac12\|\mathbb E_\kappa\mathcal M_\kappa
-                 -\operatorname{id}_D\|_\diamond\le\epsilon,
-\qquad 0\le\epsilon<1.
+                 -\mathrm{id}_D\|_\diamond\le\epsilon,
+\qquad 0\le\epsilon\lt 1.
 ```
 
 Its entanglement fidelity is at least $`1-\epsilon`$. That fidelity is linear in the channel, so some fixed key gives a channel $`\mathcal M`$ with $`F_e(\mathcal M)\ge1-\epsilon`$.
@@ -613,9 +613,9 @@ Its entanglement fidelity is at least $`1-\epsilon`$. That fidelity is linear in
 A unitary change of Kraus basis arranges its Kraus operators to satisfy
 
 ```math
-\operatorname{Tr}K_0=D\sqrt{F_e(\mathcal M)}
+\mathrm{Tr}K_0=D\sqrt{F_e(\mathcal M)}
 \quad\text{real and nonnegative},\qquad
-\operatorname{Tr}K_a=0\quad(a>0).
+\mathrm{Tr}K_a=0\quad(a>0).
 ```
 
 Define isometries
@@ -631,7 +631,7 @@ They satisfy
 T:=(V-W)^\dagger(V-W)
 =2I_D-K_0-K_0^\dagger\ge0,
 \qquad
-\frac{\operatorname{Tr}T}{D}
+\frac{\mathrm{Tr}T}{D}
 =2(1-\sqrt{F_e(\mathcal M)})\le2\epsilon.
 ```
 
@@ -644,12 +644,12 @@ At least $`D/2`$ eigenvectors of $`T`$ have eigenvalue at most $`4\epsilon`$. Ch
 For any input entangled with a reference, the resulting two purifications differ in norm by at most this amount. Their half trace distance, and that of their partial traces, is bounded by the same amount. Therefore,
 
 ```math
-\frac12\|\mathcal M\circ\operatorname{Enc}_F
-                 -\operatorname{Enc}_F\|_\diamond
+\frac12\|\mathcal M\circ\mathrm{Enc}_F
+                 -\mathrm{Enc}_F\|_\diamond
 \le\min\{1,2\sqrt\epsilon\}.
 ```
 
-Following the original recovery by a trace-preserving left inverse of $`\operatorname{Enc}_F`$ gives a deterministic logical channel on $`k-1`$ qubits with this error. For $`\epsilon=0`$, $`T=0`$ and no restriction is necessary.
+Following the original recovery by a trace-preserving left inverse of $`\mathrm{Enc}_F`$ gives a deterministic logical channel on $`k-1`$ qubits with this error. For $`\epsilon=0`$, $`T=0`$ and no restriction is necessary.
 
 The loss of at most one logical qubit leaves the asymptotic rates unchanged. To obtain deterministic target error $`\epsilon_{\mathrm{det}}`$, use randomized error at most $`\epsilon_{\mathrm{det}}^2/4`$ and allow one qubit of rate slack. The fixed-rate quadratic scale and rate-one subquadratic limit therefore remain valid as deterministic existence statements for prescribed durations. No efficient procedure for finding or implementing $`F`$ is established.
 

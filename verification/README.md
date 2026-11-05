@@ -49,3 +49,7 @@ The two-block diagnostic uses a specified finite mixture of common rotations. It
 For a logical Pauli channel the half-diamond error from identity equals the total nonidentity probability. The five-qubit test can therefore compare an exact diamond error with the theorem's Markov bound without solving a numerical semidefinite program. Inner-block entanglement infidelity in the plot is a different metric and is labeled accordingly.
 
 Analytic examples, conventions, and the independent-noise ceiling are developed in [science/examples.md](../science/examples.md).
+
+## GitHub mathematical rendering
+
+The separate [hosted mathematics collector](github_math/references/hosted-rendering.md) checks actual commit-pinned GitHub pages at two viewport widths. It compares every inventoried expression with captured mathematical structure and saves screenshots for visual review. The pull-request workflow runs with read-only repository permissions. This presentation check is separate from the scientific assertions and finite-matrix evidence above.

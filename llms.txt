@@ -6,6 +6,10 @@
 
 - [README](README.md): Scientific question, principal guarantees, evidence, scope, purpose, and contact.
 - [Scientific overview](science/README.md): Connected reading route and proof dependencies.
+- [Learning overview](learning/README.md): Entry point joining the common milestone map, single selected educational anchor, continuous tutorial, and authoritative science.
+- [Thirty milestones](learning/milestones.md): M01–M30, with twelve background targets and eighteen narrative targets; conceptual questions, dependencies, and sources.
+- [Anchor bridge](learning/anchor_bridge.md): Nielsen and Chuang, Quantum Computation and Quantum Information, 10th Anniversary Edition; verified section pointers, explicit convention translations, and the steps supplied by the project.
+- [Continuous tutorial](learning/tutorial.md): The complete milestone sequence in eight contiguous groups, including an analytic twenty-spin example with five singlet blocks and a five-qubit outer code.
 - [Model](science/model.md): Two unnormalized Hermitian weighted Pauli sums; fixed positive rates; no additional Hamiltonian; endpoint-only operations; reliable input-independent classical key; half-diamond error averaged over that key.
 - [Finite theorem](science/storage_theorem.md): Exact bin counts, Catalan dimensions, singlet trace bound, non-signalling, correlated Pauli reduction, integer recovery threshold, stabilizer existence, asymptotic limits, and deterministic expurgation at a prescribed time.
 - [Symmetry](science/symmetry.md): Distinct positive scalar couplings generate the direct sum of local su(2) Lie algebras and the full associative matrix algebra; scalar commutant and eventual finite-size depolarization.
@@ -19,13 +23,19 @@
 
 ## Match the reader's question
 
-For the story, read the repository README, interpretation, and scientific overview. For a theorem audit, read the model and finite-size proof, then the symmetry and resource pages. For computation, run python verification/verify_memory.py using requirements.txt, and inspect the saved numerical summaries and CSV files. For comparison with earlier work, use references/related_work.md before inferring a priority claim from the project title.
+- For a conceptual explanation, use the [learning overview](learning/README.md), [milestone map](learning/milestones.md), and [continuous tutorial](learning/tutorial.md). The [anchor bridge](learning/anchor_bridge.md) connects the selected textbook foundations to the locally developed argument.
+- For the scientific story, use the [repository README](README.md), [interpretation](science/interpretation.md), and [scientific overview](science/README.md).
+- For an exact claim or proof, use the [model](science/model.md) and [finite theorem](science/storage_theorem.md), followed by the [symmetry](science/symmetry.md) and [resource](science/resources.md) pages.
+- For computation, follow [verification](verification/README.md), run python verification/verify_memory.py using requirements.txt, and inspect the saved numerical summaries and CSV files.
+- For comparison with earlier work, use [related work](references/related_work.md) and the cited primary sources.
 
 ## Essential distinctions
 
 The fixed-rate quadratic interval, the existential rate-one subquadratic limit, and the polynomial rate-one t_n=o(n^2/log^3 n) regime are separate guarantees. None is an optimal-time converse. The same keyed code works across its stated interval; deterministic expurgation is proved only for each prescribed duration and has no efficient compiler claim.
 
 Closed block marginals do not mean independent noise. Pauli twirling retains correlated errors, and the outer guarantee uses their expected weight. Inner entanglement infidelity is not the full memory's diamond error. A curve marked n=64 evolves one four-spin marginal of that coupling profile, not a 64-spin Liouvillian.
+
+The tutorial's twenty-spin memory is an analytic application: one stored qubit, five four-spin blocks, ten retained classical key bits, and a half-diamond bound of 1/30 for 0 <= t <= 0.4 at g_j=1+j/20 and gamma_x=gamma_z=1. It is not a full twenty-spin numerical evolution. Nielsen–Chuang is the sole educational anchor; specialized singlet, diamond-norm, correlated-recovery, and modern Tanner statements belong to the linked project proofs and primary research references.
 
 The associative algebra is full, while the generated Lie algebra is a direct sum of local su(2) algebras, not su(2^n). The general vector-coupling corollary does not automatically inherit scalar-profile irreducibility.
 

@@ -1,0 +1,32 @@
+# Inhomogeneous Collective Memory
+
+> Endpoint quantum storage under noncommuting common fields with supplied inhomogeneous couplings. The central result is a uniform achievable size–rate–time law, including correlated errors and explicit resource boundaries.
+
+## Authoritative routes
+
+- [README](README.md): Scientific question, principal guarantees, evidence, scope, purpose, and contact.
+- [Scientific overview](science/README.md): Connected reading route and proof dependencies.
+- [Model](science/model.md): Two unnormalized Hermitian weighted Pauli sums; fixed positive rates; no additional Hamiltonian; endpoint-only operations; reliable input-independent classical key; half-diamond error averaged over that key.
+- [Finite theorem](science/storage_theorem.md): Exact bin counts, Catalan dimensions, singlet trace bound, non-signalling, correlated Pauli reduction, integer recovery threshold, stabilizer existence, asymptotic limits, and deterministic expurgation at a prescribed time.
+- [Symmetry](science/symmetry.md): Distinct positive scalar couplings generate the direct sum of local su(2) Lie algebras and the full associative matrix algebra; scalar commutant and eventual finite-size depolarization.
+- [Resources](science/resources.md): Certified calibration, no implicit data oracle, fixed-rate polynomial Tanner construction, all-length packing, circuit and key accounting, composable endpoint errors, and polynomial growing-rate CSS Reed–Solomon construction.
+- [Coupling geometry](science/coupling_geometry.md): Singlet variance for vector-valued local fields and achievable n^(2/r) scale for a fixed r-dimensional Lipschitz parameter family.
+- [Examples](science/examples.md): Exact four-spin decoder and slopes; correlated twirling and recovery; calibration sensitivity; independent-depolarization ceiling.
+- [Interpretation](science/interpretation.md): Physical meaning, order of limits, retained resources, assumptions, and open converse questions.
+- [Related work](references/related_work.md): Primary-source attribution and model/theorem comparison, including the pinned Quantum Spectral Memory antecedent.
+- [Bibliography](references/references.bib): Structured citations.
+- [Verification](verification/README.md): Reproduction, checks, evidence scope, data, and figures.
+
+## Match the reader's question
+
+For the story, read the repository README, interpretation, and scientific overview. For a theorem audit, read the model and finite-size proof, then the symmetry and resource pages. For computation, run python verification/verify_memory.py using requirements.txt, and inspect the saved numerical summaries and CSV files. For comparison with earlier work, use references/related_work.md before inferring a priority claim from the project title.
+
+## Essential distinctions
+
+The fixed-rate quadratic interval, the existential rate-one subquadratic limit, and the polynomial rate-one t_n=o(n^2/log^3 n) regime are separate guarantees. None is an optimal-time converse. The same keyed code works across its stated interval; deterministic expurgation is proved only for each prescribed duration and has no efficient compiler claim.
+
+Closed block marginals do not mean independent noise. Pauli twirling retains correlated errors, and the outer guarantee uses their expected weight. Inner entanglement infidelity is not the full memory's diamond error. A curve marked n=64 evolves one four-spin marginal of that coupling profile, not a 64-spin Liouvillian.
+
+The associative algebra is full, while the generated Lie algebra is a direct sum of local su(2) algebras, not su(2^n). The general vector-coupling corollary does not automatically inherit scalar-profile irreducibility.
+
+Ideal joint endpoint operations, supplied calibration, and a reliable classical key are explicit assumptions. There are no operations or protected quantum bypass during storage. Fixed independent isotropic depolarization gives a size-independent entanglement-breaking ceiling. The repository does not establish hardware fault tolerance, arbitrary quantum-bath protection, calibration sample complexity, or a universal optimal lifetime.

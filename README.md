@@ -4,7 +4,7 @@ A register of spins can preserve an extensive unknown quantum state for a time g
 
 The result is an achievable size–rate–time law for a specified common-field model. It includes reference-entangled inputs, the classical key used by the protocol, finite calibration precision, and the costs of two endpoint implementations.
 
-[Scientific overview](science/README.md) · [Exact theorem and proof](science/storage_theorem.md) · [Resources](science/resources.md) · [Reproduce the checks](verification/README.md) · [Related work](references/related_work.md)
+[Scientific overview](science/README.md) · [Learning route](learning/README.md) · [Exact theorem and proof](science/storage_theorem.md) · [Resources](science/resources.md) · [Reproduce the checks](verification/README.md) · [Related work](references/related_work.md)
 
 ## The model and the main result
 
@@ -40,6 +40,16 @@ Dividing coefficient space into narrow bins leaves almost all spins available fo
 Logical Pauli randomization turns the complete decoded channel into a Pauli distribution while retaining its correlations. The expected number of erroneous logical positions is then small. An outer distance code corrects every sufficiently low-weight Pauli error, so an elementary probability bound gives the final half-diamond guarantee. The proof needs no independence or concentration assumption.
 
 For distinct couplings, the register nevertheless approaches the maximally mixed state at fixed size. The achievable storage interval concerns the joint limit of growing size and time. It does not contradict the eventual loss of all quantum information at any fixed size.
+
+## Learn the argument
+
+The [learning overview](learning/README.md) connects a shared map of **30 milestones** to one continuous explanation. The sole educational anchor is **Nielsen and Chuang, *Quantum Computation and Quantum Information*, 10th Anniversary Edition**.
+
+- [Milestone map](learning/milestones.md): twelve background targets and eighteen targets developing the mechanism, theorem, implementation and limits.
+- [Anchor bridge](learning/anchor_bridge.md): verified textbook section pointers, notation conventions, and the additional arguments supplied by this project.
+- [Continuous tutorial](learning/tutorial.md): eight connected groups covering M01–M30, with an analytic twenty-spin memory built from five four-spin singlet blocks and a five-qubit outer code.
+
+The [scientific overview](science/README.md) provides the direct route to the authoritative assumptions, statements and complete proofs.
 
 ## Concrete evidence
 

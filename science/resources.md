@@ -5,7 +5,7 @@ This account separates the information-theoretic storage theorem from two constr
 | Statement | Endpoint construction | What is controlled |
 |---|---|---|
 | Rate tending to one for every $`t_n=o(n^2)`$ | General outer distance codes, or deterministic expurgation | Existence and reference-uniform error; no uniform efficient decoder is asserted |
-| Every fixed rate $`R<1`$ for $`t\le c_{R,\epsilon}n^2`$ | Fixed-parameter quantum Tanner codes | Polynomial classical construction and endpoint circuits; efficient final classical decoding with perfect syndromes |
+| Every fixed rate $`R\lt 1`$ for $`t\le c_{R,\epsilon}n^2`$ | Fixed-parameter quantum Tanner codes | Polynomial classical construction and endpoint circuits; efficient final classical decoding with perfect syndromes |
 | Rate tending to one for $`t_n=o(n^2/\log^3 n)`$ | Growing-field CSS Reed–Solomon codes | A uniform polynomial endpoint construction, with the extra logarithmic loss shown below |
 
 The keyed implementations average over freshly sampled classical Pauli keys and discard the key after recovery. Their output guarantee is a half-diamond bound on the resulting logical channel. They do not assert the same bound for every fixed key. The key contains no quantum information and uses at most two classical bits per inner logical qubit.
@@ -18,7 +18,7 @@ Fix an even block size $`m\ge4`$. Let
 D_m=\frac{1}{m/2+1}\binom{m}{m/2},\qquad
 k_m=\lfloor\log_2D_m\rfloor,\qquad
 d_m=2^{k_m},\qquad
-\rho_m=\frac{D_m}{d_m}<2.
+\rho_m=\frac{D_m}{d_m}\lt 2.
 ```
 
 Choose a specified $`d_m`$-dimensional subspace of the spin-zero sector, with an isometry from $`k_m`$ logical qubits. The same isometry can be used in every block. After storage, its inverse is applied on the code subspace; leakage is mapped to a fixed logical state. Every outcome is included.
@@ -29,7 +29,7 @@ Write $`\Gamma=\gamma_x+\gamma_z`$. For numerical certificates, every occurrence
 p_b\le 1-e^{-t\mu_b}\le t\mu_b,\qquad
 \mu_b=\Gamma\rho_m\frac{m}{m-1}
        \sum_{j\in b}(g_j-\bar g_b)^2.
-\tag{R1}
+\qquad\text{(R1)}
 ```
 
 The [storage theorem](storage_theorem.md) proves (R1) by Hilbert–Schmidt spectral Jensen and the full-singlet second moment. This bound applies to any fixed choice of the $`d_m`$ singlet vectors. It does not require optimizing an exponentially large code basis. The factor $`\rho_m`$ is essential: the estimate uses positivity to compare the trace over the selected subspace with the trace over the full singlet sector. Replacing $`d_m`$ by a much smaller dimension can increase this factor.
@@ -52,7 +52,7 @@ Choose a dyadic grid spacing $`h`$. Round each estimate to a nearest grid point,
 ```math
 |g_j-\widetilde g_j|\le u_j+h/2=:\eta_j,
 \qquad \eta=\max_j\eta_j.
-\tag{R2}
+\qquad\text{(R2)}
 ```
 
 For a discard parameter $`C>1`$, use
@@ -73,7 +73,7 @@ Within each bin, take consecutive groups of $`m`$ indices in a fixed ordering. I
 ```math
 Km\ge n-B(m-1)\ge (1-1/C)n,
 \qquad M=Kk_m.
-\tag{R3}
+\qquad\text{(R3)}
 ```
 
 The unused spins are not a clean quantum resource. The common-field channel has closed marginals on the retained spins, so their state does not have to be protected.
@@ -86,14 +86,14 @@ V_b^{\rm cert}
 \qquad
 \mu_b^{\rm cert}
 =\Gamma\rho_m\frac{m}{m-1}V_b^{\rm cert}.
-\tag{R4}
+\qquad\text{(R4)}
 ```
 
 The true mean minimizes the sum of squared deviations. Thus $`\mu_b\le\mu_b^{\rm cert}`$, and $`p_b\le\min\{1,t\mu_b^{\rm cert}\}`$ is a certified bound for every true coupling list consistent with the input. A convenient uniform estimate is
 
 ```math
 p\le \Gamma t\rho_m\frac{m^2}{m-1}(w/2+\eta)^2.
-\tag{R5}
+\qquad\text{(R5)}
 ```
 
 For $`n\ge2Cm`$, the bin width obeys $`w/2\le WCm/n`$. If $`\eta\le\chi/n`$, then
@@ -102,7 +102,7 @@ For $`n\ge2Cm`$, the bin width obeys $`w/2\le WCm/n`$. If $`\eta\le\chi/n`$, the
 p\le
 \Gamma\rho_m\frac{m^2}{m-1}
        (WCm+\chi)^2\frac{t}{n^2}.
-\tag{R6}
+\qquad\text{(R6)}
 ```
 
 At fixed block and discard parameters, certified accuracy of order $`1/n`$ therefore preserves the quadratic lifetime. Bounded couplings need $`O(\log n)`$ fractional bits at this accuracy. If the supplied uncertainties are larger, the compiler uses (R4) or reports the accuracy needed for the requested certificate; it cannot silently reduce them. The bit count does not price physical calibration time or sample complexity.
@@ -121,7 +121,7 @@ Use the stronger product-expansion hypotheses in Leverrier–Zémor, [*Decoding 
 q_T=\frac1{2^{11}}
 \min\left\{\frac{\varepsilon_d^3}{16},\kappa_T\right\}
 (1-\varepsilon_d)\delta_T^2\kappa_T^2\frac1\Delta>0.
-\tag{R7}
+\qquad\text{(R7)}
 ```
 
 Both components are decoded, so a Pauli of total weight less than $`q_TN`$ is corrected. The sequential decoder takes linear time in the code length in the fixed-parameter word-operation model. Theorem 20 also supplies a parallel decoder with its own, slightly smaller threshold. The construction here uses Theorem 13 and perfect final syndromes.
@@ -130,7 +130,7 @@ For fixed $`\theta`$, all local codes and local decoder tables have constant siz
 
 ### Available lengths and an all-size repair
 
-The quadripartite construction uses $`G_i=\operatorname{PSL}_2(q^i)`$ for a fixed odd prime power $`q`$ and $`\Delta=q+1`$. Dinur et al., [arXiv:2111.04808v2, Claim 6.7 and Section 6.2](https://arxiv.org/pdf/2111.04808), supply the explicit generating sets for each sufficiently large $`i`$. A square is specified by one vertex in $`V_{00}`$ and a pair of generators, so its Tanner code length is
+The quadripartite construction uses $`G_i=\mathrm{PSL}_2(q^i)`$ for a fixed odd prime power $`q`$ and $`\Delta=q+1`$. Dinur et al., [arXiv:2111.04808v2, Claim 6.7 and Section 6.2](https://arxiv.org/pdf/2111.04808), supply the explicit generating sets for each sufficiently large $`i`$. A square is specified by one vertex in $`V_{00}`$ and a pair of generators, so its Tanner code length is
 
 ```math
 N_i=\Delta^2|G_i|
@@ -143,7 +143,7 @@ Discard finitely many initial lengths if necessary. Consecutive lengths satisfy
 \frac{N_{i+1}}{N_i}
 =q^3\frac{1-q^{-2(i+1)}}{1-q^{-2i}}
 \le L,\qquad L=2q^3.
-\tag{R8}
+\qquad\text{(R8)}
 ```
 
 To use an arbitrary available length $`M`$, repeatedly select the largest admissible $`N_i`$ no larger than the remaining length. Stop after a fixed number $`J`$ of chunks or when fewer than $`N_{\min}`$ positions remain. Whenever a chunk can be chosen, it consumes at least a fraction $`1/L`$ of the remainder. Hence the total used length $`M_{\rm used}`$ obeys
@@ -151,7 +151,7 @@ To use an arbitrary available length $`M`$, repeatedly select the largest admiss
 ```math
 M_{\rm used}\ge
 \bigl[1-(1-1/L)^J\bigr]M-N_{\min}.
-\tag{R9}
+\qquad\text{(R9)}
 ```
 
 The $`J`$ chunks use independent Tanner encoding and final recovery, while their input may be entangled across chunks. No independence of storage errors is imposed. Markov's inequality and a union bound give
@@ -159,7 +159,7 @@ The $`J`$ chunks use independent Tanner encoding and final recovery, while their
 ```math
 \epsilon_{\rm storage}
 \le\min\left\{1,\frac{Jp}{q_T}\right\}.
-\tag{R10}
+\qquad\text{(R10)}
 ```
 
 Indeed, each chunk of length $`N_i`$ has expected Pauli weight at most $`N_ip`$. Except on an event of probability at most $`p/q_T`$, its Pauli has weight below the decoder threshold. On the joint success event all chunks act as the identity, including on reference-entangled inputs. The remaining branch is a channel, giving the same failure probability as a half-diamond bound.
@@ -170,16 +170,16 @@ The total number $`k_{\mathrm{out}}`$ of stored qubits consequently satisfies
 \frac{k_{\mathrm{out}}}n
 \ge r_T\bigl[1-(1-1/L)^J\bigr]
        (1-1/C)\frac{k_m}{m}-O(1/n).
-\tag{R11}
+\qquad\text{(R11)}
 ```
 
-For any fixed target $`R<1`$, choose fixed $`m,C,\theta,J`$ so that the main coefficient in (R11) exceeds $`R`$. Combining (R6) and (R10), the sufficient storage condition is
+For any fixed target $`R\lt 1`$, choose fixed $`m,C,\theta,J`$ so that the main coefficient in (R11) exceeds $`R`$. Combining (R6) and (R10), the sufficient storage condition is
 
 ```math
 t\le
 \frac{\epsilon_{\rm storage}q_T(m-1)}
  {J\Gamma\rho_m m^2(WCm+\chi)^2}\,n^2.
-\tag{R12}
+\qquad\text{(R12)}
 ```
 
 All constants are explicit once a particular fixed Tanner family is selected. They may be very poor at high target rate. Keeping $`J`$ fixed matters: filling the register with a growing number of chunks would change the error accounting.
@@ -200,7 +200,7 @@ For the inner map, enumerate an orthonormal angular-momentum coupling basis, cho
 
 ```math
 G_{\mathrm{inner}}^{(0)}
-=O\bigl(K\,\operatorname{poly}(m)4^m\bigr)
+=O\bigl(K\,\mathrm{poly}(m)4^m\bigr)
 ```
 
 in arbitrary single-qubit rotations and two-qubit gates; no table lookup is counted as a unit-time quantum operation. At fixed $`m`$ this is linear in $`n`$. This generic synthesis estimate follows from standard finite-unitary decomposition; see Barenco et al., [*Elementary gates for quantum computation*](https://arxiv.org/abs/quant-ph/9503016). It is sufficient here without an optimized Schur-transform implementation.
@@ -238,7 +238,7 @@ where $`\Phi_t`$ below means the physical storage channel tensored with the iden
 \frac12\|\widetilde{\mathcal R}\Phi_t
        \widetilde{\mathcal E}-\mathrm{id}\|_\diamond
 \le \epsilon_{\rm storage}+\epsilon_E+\epsilon_R.
-\tag{R13}
+\qquad\text{(R13)}
 ```
 
 For circuits represented as compositions of CPTP elementary operations, including measurements with their classical outputs, it suffices to assign operation $`\ell`$ a half-diamond error $`\xi_\ell`$ and require $`\sum_\ell\xi_\ell\le\epsilon_E+\epsilon_R`$. This is a hybrid argument, not a stochastic independence assumption. If a physical implementation has memory across operations, the full-boundary bounds in (R13) are the required interface.
@@ -248,8 +248,8 @@ A single-qubit unitary approximation with operator-norm error $`\zeta`$ has chan
 ```math
 O\left(G_0\log^{3.97}\frac{G_0}{\epsilon_{\rm synth}}\right),
 \qquad
-G_0=O\bigl(M^2+K\operatorname{poly}(m)4^m\bigr).
-\tag{R14}
+G_0=O\bigl(M^2+K\mathrm{poly}(m)4^m\bigr).
+\qquad\text{(R14)}
 ```
 
 Clifford gates can be retained exactly in a Clifford-plus-$`T`$ gate set. State preparation, measurement, physical gate errors, and any noise accumulated while executing the endpoints must be included in the remaining boundary budget. The ideal storage theorem itself does not suppress those errors.
@@ -265,35 +265,35 @@ Let $`\ell=\lceil\log_2(n+1)\rceil`$, and choose
 ```math
 m=2\left\lceil\frac{\ell+2\log_2\ell+8}{2}\right\rceil,
 \qquad s=k_m,\qquad Q=2^s.
-\tag{R15}
+\qquad\text{(R15)}
 ```
 
-Use all $`s=k_m`$ inner logical qubits as one $`Q`$-dimensional symbol. For sufficiently large $`n`$, $`Q\ge K`$, while $`m=O(\log n)`$ and $`Q\le2^m=\operatorname{poly}(n)`$. For example,
+Use all $`s=k_m`$ inner logical qubits as one $`Q`$-dimensional symbol. For sufficiently large $`n`$, $`Q\ge K`$, while $`m=O(\log n)`$ and $`Q\le2^m=\mathrm{poly}(n)`$. For example,
 
 ```math
 D_m\ge\frac{2^m}{(m+1)(m/2+1)}
 ```
 
-already suffices to verify $`2^{k_m}\ge K`$ for the choice (R15) at large $`n`$. The compiler can check this exact integer inequality before construction. Taking $`s=k_m`$ retains the uniform factor $`\rho_m<2`$ in (R1); choosing only $`s=\lceil\log_2K\rceil`$ would not automatically retain it.
+already suffices to verify $`2^{k_m}\ge K`$ for the choice (R15) at large $`n`$. The compiler can check this exact integer inequality before construction. Taking $`s=k_m`$ retains the uniform factor $`\rho_m\lt 2`$ in (R1); choosing only $`s=\lceil\log_2K\rceil`$ would not automatically retain it.
 
-Choose $`K`$ distinct evaluation points in $`\mathbb F_Q`$. For $`0\le r<K/2`$, ordinary Reed–Solomon evaluation codes with the same points satisfy
+Choose $`K`$ distinct evaluation points in $`\mathbb F_Q`$. For $`0\le r\lt K/2`$, ordinary Reed–Solomon evaluation codes with the same points satisfy
 
 ```math
-\operatorname{RS}_r\subset\operatorname{RS}_{K-r}.
+\mathrm{RS}_r\subset\mathrm{RS}_{K-r}.
 ```
 
 The CSS pair
 
 ```math
-C_X=\operatorname{RS}_{K-r},\qquad
-C_Z=\operatorname{RS}_r^{\perp}
+C_X=\mathrm{RS}_{K-r},\qquad
+C_Z=\mathrm{RS}_r^{\perp}
 ```
 
 therefore has parameters
 
 ```math
 [[K,K-2r,d\ge r+1]]_Q.
-\tag{R16}
+\qquad\text{(R16)}
 ```
 
 This follows directly from nesting, the CSS dimension formula, and the MDS distances of Reed–Solomon codes and their duals. It is an inherited coding construction. Grassl–Geiselmann–Beth, [*Quantum Reed–Solomon Codes*](https://arxiv.org/pdf/quant-ph/9910059), gives the finite-field CSS approach and encoder/syndrome circuitry. Equation (R16) uses the nested-code formulation so that no special self-duality condition on the chosen evaluation points is needed.
@@ -304,7 +304,7 @@ Set $`r=2\lceil\beta K\rceil`$ with $`\beta\to0`$. The outer rate is at least $`
 
 ```math
 \epsilon_{\rm storage}\le p/\beta.
-\tag{R17}
+\qquad\text{(R17)}
 ```
 
 For a sequence $`t=t_n`$ satisfying
@@ -313,12 +313,12 @@ For a sequence $`t=t_n`$ satisfying
 h_n=\frac{n^2}{(1+\Gamma W^2t_n)\ell^3}\longrightarrow\infty,
 ```
 
-take $`C=\Theta(h_n^{1/8})`$ and $`\beta=\Theta(h_n^{-1/4})`$. Powers of two within fixed factors give exact rational choices. Assume certified uncertainty $`\eta=O(1/n)`$. Equations (R5)–(R6), $`m=\Theta(\ell)`$, and $`\rho_m<2`$ yield
+take $`C=\Theta(h_n^{1/8})`$ and $`\beta=\Theta(h_n^{-1/4})`$. Powers of two within fixed factors give exact rational choices. Assume certified uncertainty $`\eta=O(1/n)`$. Equations (R5)–(R6), $`m=\Theta(\ell)`$, and $`\rho_m\lt 2`$ yield
 
 ```math
 p=O(C^2/h_n),\qquad
 \epsilon_{\rm storage}=O(h_n^{-1/2})\longrightarrow0.
-\tag{R18}
+\qquad\text{(R18)}
 ```
 
 Also $`Cm=o(n)`$, $`K\to\infty`$, $`\beta K\to\infty`$, and

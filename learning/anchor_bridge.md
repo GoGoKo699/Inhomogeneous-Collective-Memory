@@ -55,8 +55,8 @@ For a decoded block channel $`\mathcal N_b`$ on $`d=2^{k_m}`$ dimensions, let $`
 
 ```math
 F_{e,b}
-=\operatorname{Tr}\!\left[
-\omega_d(\mathcal N_b\otimes\operatorname{id})(\omega_d)
+=\mathrm{Tr}\!\left[
+\omega_d(\mathcal N_b\otimes\mathrm{id})(\omega_d)
 \right],
 \qquad p_b=1-F_{e,b}.
 ```
@@ -70,10 +70,10 @@ The final criterion has a different quantifier. For the recovered logical channe
 ```math
 \begin{aligned}
 \epsilon_{\mathrm{mem}}
-&=\frac12\|\mathcal M_{n,t}-\operatorname{id}_{2^k}\|_\diamond\\
+&=\frac12\|\mathcal M_{n,t}-\mathrm{id}_{2^k}\|_\diamond\\
 &=\sup_{\rho_{LR}}
 \frac12\left\|
-(\mathcal M_{n,t}\otimes\operatorname{id}_R)(\rho_{LR})
+(\mathcal M_{n,t}\otimes\mathrm{id}_R)(\rho_{LR})
 -\rho_{LR}
 \right\|_1 .
 \end{aligned}
@@ -94,7 +94,7 @@ D_m=\frac{1}{m/2+1}\binom m{m/2},
 \qquad
 k_m=\lfloor\log_2D_m\rfloor,
 \qquad
-\rho_m=\frac{D_m}{2^{k_m}}<2.
+\rho_m=\frac{D_m}{2^{k_m}}\lt 2.
 ```
 
 The factor $`\rho_m`$ accounts for selecting a qubit-sized logical space within that sector. The cancellation and dimension count are established singlet facts, derived and attributed in [theorem §2](../science/storage_theorem.md#2-binning-and-the-singlet-code). The additional grouping argument makes them useful for every supplied bounded coefficient list.
@@ -117,8 +117,8 @@ Here $`\bar g_b`$ is the mean coupling within block $`b`$. Permutation invarianc
 Partial trace does more here than define a reduced state. For each Hermitian one-body collective jump, the double-commutator form of the dissipator gives the intertwining identity
 
 ```math
-\operatorname{Tr}_{T}\circ\Phi_{n,t}
-=\Phi_{S,t}\circ\operatorname{Tr}_{T},
+\mathrm{Tr}_{T}\circ\Phi_{n,t}
+=\Phi_{S,t}\circ\mathrm{Tr}_{T},
 \qquad T=S^{\mathrm c}.
 ```
 
@@ -131,10 +131,10 @@ Pauli twirling at the endpoints removes cross terms in the Kraus expansion and p
 For a joint Pauli error $`Q`$, an outer code correcting all weights up to $`h`$ gives
 
 ```math
-\mathbb E[\operatorname{wt}(Q)]
+\mathbb E[\mathrm{wt}(Q)]
 \le k_m\sum_b p_b,
 \qquad
-\Pr(\operatorname{wt}(Q)>h)
+\Pr(\mathrm{wt}(Q)>h)
 \le\frac{k_m}{h+1}\sum_b p_b.
 ```
 
@@ -146,7 +146,7 @@ For distinct positive coefficients, repeated commutators and a Vandermonde inver
 
 ## 4. Where the bridge reaches the theorem
 
-At fixed block size, discard parameter and outer correctable fraction, bin width is $`O(1/n)`$. The variance bound is then $`O(t/n^2)`$, and outer recovery tolerates a fraction of errors. [Theorem §8](../science/storage_theorem.md#8-explicit-asymptotic-consequences) makes the constants and roundings explicit: every fixed rate $`0<R<1`$ and fixed target error admit a sufficiently small constant times $`n^2`$ storage interval. A separate parameter sequence gives rate approaching one and error approaching zero for every $`t_n=o(n^2)`$. These are achievable guarantees.
+At fixed block size, discard parameter and outer correctable fraction, bin width is $`O(1/n)`$. The variance bound is then $`O(t/n^2)`$, and outer recovery tolerates a fraction of errors. [Theorem §8](../science/storage_theorem.md#8-explicit-asymptotic-consequences) makes the constants and roundings explicit: every fixed rate $`0\lt R\lt 1`$ and fixed target error admit a sufficiently small constant times $`n^2`$ storage interval. A separate parameter sequence gives rate approaching one and error approaching zero for every $`t_n=o(n^2)`$. These are achievable guarantees.
 
 The existence argument does not by itself supply an efficient decoder. [Resources](../science/resources.md) supplies polynomial endpoint constructions at fixed rate using an existing Tanner family, and a separate growing-rate Reed–Solomon construction for $`t_n=o(n^2/\log^3 n)`$. It also counts calibration precision, classical key storage, circuit synthesis and additive boundary errors. Those claims use explicit research-level coding ingredients; they are not consequences inferred solely from the textbook circuit section.
 

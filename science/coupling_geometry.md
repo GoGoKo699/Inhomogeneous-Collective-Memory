@@ -11,7 +11,7 @@ A_\ell=\sum_{j=1}^n \boldsymbol v_\ell(u_j)\cdot
                     \boldsymbol\sigma_j,
 \qquad
 \mathcal L=\sum_{\ell=1}^s\gamma_\ell\mathcal D[A_\ell].
-\tag{G1}
+\qquad\text{(G1)}
 ```
 
 Here $`\boldsymbol\sigma_j=(X_j,Y_j,Z_j)`$, the supplied parameters satisfy $`u_j\in[0,1]^r`$, and each fixed map $`\boldsymbol v_\ell:[0,1]^r\to\mathbb R^3`$ is Lipschitz:
@@ -19,7 +19,7 @@ Here $`\boldsymbol\sigma_j=(X_j,Y_j,Z_j)`$, the supplied parameters satisfy $`u_
 ```math
 \|\boldsymbol v_\ell(u)-\boldsymbol v_\ell(u')\|_2
 \le L_\ell\|u-u'\|_2.
-\tag{G2}
+\qquad\text{(G2)}
 ```
 
 The integers $`r,s`$, rates, maps and Lipschitz constants do not grow with $`n`$. Define $`\Lambda=\sum_\ell\gamma_\ell L_\ell^2`$. There is no additional Hamiltonian. The boundary operations, classical key and error criterion are those of [the model](model.md).
@@ -33,12 +33,12 @@ The singlet moment structure below is inherited; see [Urizar-Lanz et al. (2013),
 Let $`P_m`$ project onto the complete singlet sector of an even number $`m`$ of spins, with dimension $`D_m`$. Global rotation and permutation invariance give
 
 ```math
-\frac{\operatorname{Tr}(P_m\sigma_i^a\sigma_j^b)}{D_m}
+\frac{\mathrm{Tr}(P_m\sigma_i^a\sigma_j^b)}{D_m}
 =\begin{cases}
 \delta_{ab},&i=j,\\
 -\delta_{ab}/(m-1),&i\ne j.
 \end{cases}
-\tag{G3}
+\qquad\text{(G3)}
 ```
 
 For different sites, rotation invariance makes the tensor proportional to $`\delta_{ab}`$ and permutation invariance makes the coefficient independent of the pair. Squaring any component of the total spin, which annihilates the singlet sector, fixes that coefficient at $`-1/(m-1)`$. For the same site, the Pauli product rule and the zero one-spin expectation give the first line.
@@ -49,19 +49,19 @@ and $`\overline{\boldsymbol v}=m^{-1}\sum_j\boldsymbol v_j`$.
 Expanding $`A^2`$ using (G3) gives
 
 ```math
-\frac{\operatorname{Tr}(P_mA^2)}{D_m}
+\frac{\mathrm{Tr}(P_mA^2)}{D_m}
 =\frac{m}{m-1}
   \sum_{j=1}^m\|\boldsymbol v_j-\overline{\boldsymbol v}\|_2^2.
-\tag{G4}
+\qquad\text{(G4)}
 ```
 
 Every one-spin Pauli has zero compression to the singlet sector, so $`P_mAP_m=0`$. If $`Q\le P_m`$ has dimension $`d_m=2^{\lfloor\log_2D_m\rfloor}`$, positivity also gives
 
 ```math
-\frac{\operatorname{Tr}(QA^2)}{d_m}
-\le\rho_m\frac{\operatorname{Tr}(P_mA^2)}{D_m},
-\qquad \rho_m=D_m/d_m<2.
-\tag{G5}
+\frac{\mathrm{Tr}(QA^2)}{d_m}
+\le\rho_m\frac{\mathrm{Tr}(P_mA^2)}{D_m},
+\qquad \rho_m=D_m/d_m\lt 2.
+\qquad\text{(G5)}
 ```
 
 Apply the encoded-Bell survival proof from [the storage theorem](storage_theorem.md). The block Lindblad generator is self-adjoint and negative semidefinite in Hilbert–Schmidt inner product. The spectral Jensen bound and the inverse-on-code, reset-on-leakage decoder therefore imply
@@ -74,7 +74,7 @@ p_b\le 1-e^{-t\mu_b}\le t\mu_b,
 \sum_{j\in b}\left\|
 \boldsymbol v_\ell(u_j)-\overline{\boldsymbol v}_{\ell,b}
 \right\|_2^2.
-\tag{G6}
+\qquad\text{(G6)}
 ```
 
 This step does not require the equal-coupling part of a jump to commute with its mismatch. The separate restricted-generator diamond-norm estimate in the scalar proof used that commutation; (G6) uses only singlet variance and the Hermitian-generator spectral argument.
@@ -94,7 +94,7 @@ The squared distance of a parameter from its cell midpoint is at most $`r/(4B^2)
 ```math
 \mu_b\le
 \rho_m\frac{m^2}{m-1}\frac{r\Lambda}{4B^2}.
-\tag{G7}
+\qquad\text{(G7)}
 ```
 
 When $`n\ge 2^rCm`$, the elementary bound on the floor yields
@@ -103,7 +103,7 @@ When $`n\ge 2^rCm`$, the elementary bound on the floor yields
 \mu_b\le
 \rho_m\frac{m^2}{m-1}\,r\Lambda
 \left(\frac{Cm}{n}\right)^{2/r}.
-\tag{G8}
+\qquad\text{(G8)}
 ```
 
 Each jump is still a sum of Hermitian operators on separate sites. The partial-trace identity, exact block marginals, Pauli twirl and correlated-error recovery argument are unchanged. An outer code correcting a fraction $`q`$ of its logical input positions consequently has the sufficient bound
@@ -113,12 +113,12 @@ Each jump is still a sum of Hermitian operators on separate sites. The partial-t
 \le \frac{t}{q}\,
 \rho_m\frac{m^2}{m-1}\,r\Lambda
 \left(\frac{Cm}{n}\right)^{2/r},
-\tag{G9}
+\qquad\text{(G9)}
 ```
 
 with integer thresholds handled as in the finite-size theorem.
 
-For every fixed rate $`0<R<1`$ and error $`\epsilon>0`$, choose fixed block, discard and outer-code parameters. Equation (G9) then permits $`t=c_{R,\epsilon}n^{2/r}`$. Existing fixed-rate Tanner codes give the same polynomial endpoint construction as in [resources](resources.md), provided evaluation and certified grouping of the supplied parameters are computationally available. The storage bound itself does not assume an efficient oracle for arbitrary real functions.
+For every fixed rate $`0\lt R\lt 1`$ and error $`\epsilon>0`$, choose fixed block, discard and outer-code parameters. Equation (G9) then permits $`t=c_{R,\epsilon}n^{2/r}`$. Existing fixed-rate Tanner codes give the same polynomial endpoint construction as in [resources](resources.md), provided evaluation and certified grouping of the supplied parameters are computationally available. The storage bound itself does not assume an efficient oracle for arbitrary real functions.
 
 For every $`t_n=o(n^{2/r})`$, rate one and vanishing error are also achievable existentially. To make the limit explicit, set
 

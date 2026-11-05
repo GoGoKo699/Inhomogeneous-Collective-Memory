@@ -21,7 +21,7 @@ There are $`n`$ physical qubits with an arbitrary supplied list $`g_j\in[1,2]`$.
 
 Both rates are positive and fixed independently of $`n`$; the jumps are not normalized by register size. There is no additional Hamiltonian. The two Hermitian jumps describe common fluctuating fields, so different spins and coding blocks experience correlated noise. Encoding and recovery occur only at the boundaries: no control, reset, or measurement takes place during storage.
 
-**For every fixed $`0<R<1`$ and $`0<\epsilon<1`$, all sufficiently large registers admit storage of at least $`Rn`$ logical qubits with half-diamond error at most $`\epsilon`$ throughout $`0\le t\le c_{R,\epsilon}n^2`$.** This holds for every supplied coefficient list in the interval, without a spacing or probability assumption. The encoder and recovery are fixed across that time interval.
+**For every fixed $`0\lt R\lt 1`$ and $`0\lt \epsilon\lt 1`$, all sufficiently large registers admit storage of at least $`Rn`$ logical qubits with half-diamond error at most $`\epsilon`$ throughout $`0\le t\le c_{R,\epsilon}n^2`$.** This holds for every supplied coefficient list in the interval, without a spacing or probability assumption. The encoder and recovery are fixed across that time interval.
 
 | Guarantee | Construction and qualification | Full account |
 |---|---|---|

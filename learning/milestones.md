@@ -216,7 +216,7 @@ Dependencies below identify earlier milestones needed for each conceptual step. 
 
 **Central question:** How much unknown information fits into a complete block's singlet sector?
 
-**Understanding target:** Relate the Catalan dimension $`D_m`$ to $`k_m=\lfloor\log_2D_m\rfloor`$ logical qubits. Distinguish the full singlet projector from the selected power-of-two code subspace, understand the factor $`\rho_m=D_m/2^{k_m}<2`$, and connect growing block size to inner rate approaching one.
+**Understanding target:** Relate the Catalan dimension $`D_m`$ to $`k_m=\lfloor\log_2D_m\rfloor`$ logical qubits. Distinguish the full singlet projector from the selected power-of-two code subspace, understand the factor $`\rho_m=D_m/2^{k_m}\lt 2`$, and connect growing block size to inner rate approaching one.
 
 **Dependencies and story role:** M02, M09, M11, and M13. A group of physical spins now receives a precise logical dimension.
 
@@ -342,7 +342,7 @@ Dependencies below identify earlier milestones needed for each conceptual step. 
 
 **Central question:** Why do the fixed-rate and rate-one statements require different parameter choices?
 
-**Understanding target:** Distinguish fixed $`R<1`$ and fixed error over $`t\le c_{R,\epsilon}n^2`$ from rate approaching one and error vanishing for every $`t_n=o(n^2)`$. Explain how block size, discard fraction, and outer correction fraction change between these limits, and why the proof supplies achievability rather than an optimal exponent.
+**Understanding target:** Distinguish fixed $`R\lt 1`$ and fixed error over $`t\le c_{R,\epsilon}n^2`$ from rate approaching one and error vanishing for every $`t_n=o(n^2)`$. Explain how block size, discard fraction, and outer correction fraction change between these limits, and why the proof supplies achievability rather than an optimal exponent.
 
 **Dependencies and story role:** M14 and M21–M22. The exact finite theorem becomes its principal size-dependent consequence.
 
@@ -384,7 +384,7 @@ Dependencies below identify earlier milestones needed for each conceptual step. 
 
 **Central question:** Which parts of the memory guarantee come with an explicit efficient endpoint construction?
 
-**Understanding target:** Keep three claims separate: fixed-rate Tanner families give polynomial endpoints for fixed $`R<1`$, fixed error, and $`t\le c_{R,\epsilon}n^2`$; the general rate-one result for every $`t_n=o(n^2)`$ remains existential; growing-field CSS Reed–Solomon codes give polynomial endpoints with rate one and vanishing error for $`t_n=o(n^2/\log^3n)`$. Explain why fixed family parameters and growing field size have different resource roles.
+**Understanding target:** Keep three claims separate: fixed-rate Tanner families give polynomial endpoints for fixed $`R\lt 1`$, fixed error, and $`t\le c_{R,\epsilon}n^2`$; the general rate-one result for every $`t_n=o(n^2)`$ remains existential; growing-field CSS Reed–Solomon codes give polynomial endpoints with rate one and vanishing error for $`t_n=o(n^2/\log^3n)`$. Explain why fixed family parameters and growing field size have different resource roles.
 
 **Dependencies and story role:** M10, M21, and M23. The global existence theorem is separated from its two proved algorithmic realizations.
 

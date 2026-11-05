@@ -36,10 +36,10 @@ The first identity assumes even $`m`$. The second is the exact variance of equal
 
 The [theorem's attribution and derivation](storage_theorem.md#evaluating-the-full-singlet-average) identify the established singlet moment used here.
 
-Let $`P_m`$ be the full spin-zero projector and $`D_m=\operatorname{tr}P_m`$ its Catalan dimension. Permutation symmetry of $`P_m/D_m`$, together with zero total spin, gives for any fixed Pauli axis $`\alpha`$
+Let $`P_m`$ be the full spin-zero projector and $`D_m=\mathrm{tr}P_m`$ its Catalan dimension. Permutation symmetry of $`P_m/D_m`$, together with zero total spin, gives for any fixed Pauli axis $`\alpha`$
 
 ```math
-\frac{\operatorname{tr}(P_m\sigma_\alpha^{(i)}
+\frac{\mathrm{tr}(P_m\sigma_\alpha^{(i)}
 \sigma_\alpha^{(j)})}{D_m}
 =-\frac{1}{m-1},\qquad i\ne j.
 ```
@@ -47,7 +47,7 @@ Let $`P_m`$ be the full spin-zero projector and $`D_m=\operatorname{tr}P_m`$ its
 Consequently
 
 ```math
-\frac{\operatorname{tr}(P_m A_\alpha^2)}{D_m}
+\frac{\mathrm{tr}(P_m A_\alpha^2)}{D_m}
 =\frac{m}{m-1}\sum_j(g_j-\bar g)^2.
 ```
 
@@ -63,9 +63,9 @@ when the entire singlet sector is used as the logical space.
 When a qubit register requires a subspace $`Q\le P_m`$ of dimension $`K=2^k`$, positivity gives
 
 ```math
-\frac{\operatorname{tr}(Q A_\alpha^2)}{K}
-\le \rho_m\frac{\operatorname{tr}(P_m A_\alpha^2)}{D_m},
-\qquad \rho_m=\frac{D_m}{K}<2
+\frac{\mathrm{tr}(Q A_\alpha^2)}{K}
+\le \rho_m\frac{\mathrm{tr}(P_m A_\alpha^2)}{D_m},
+\qquad \rho_m=\frac{D_m}{K}\lt 2
 ```
 
 for $`k=\lfloor\log_2D_m\rfloor`$. The verification checks this at $`m=4,6,8`$, choosing the $`K`$-dimensional subspace that maximizes the compressed trace. For $`m=6`$, the full mean is $`0.0205078125`$, the worst four-dimensional mean is $`0.02497547755`$, and the bound is $`0.025634765625`$, using grid denominator 32. This deliberately unfavorable subspace still satisfies the estimate. These numbers are finite checks of the displayed general positivity argument, not an optimized coding prescription.
@@ -75,7 +75,7 @@ for $`k=\lfloor\log_2D_m\rfloor`$. The verification checks this at $`m=4,6,8`$, 
 For a Hermitian jump $`A=\sum_j\boldsymbol v_j\cdot\boldsymbol\sigma_j`$, rotational symmetry of the full singlet state gives the more general identity
 
 ```math
-\frac{\operatorname{tr}(P_m A^2)}{D_m}
+\frac{\mathrm{tr}(P_m A^2)}{D_m}
 =\frac{m}{m-1}\sum_j\|\boldsymbol v_j-\overline{\boldsymbol v}\|_2^2.
 ```
 
@@ -101,7 +101,7 @@ Let $`E`$ be this isometry and $`P=EE^\dagger`$. The endpoint decoder in the num
 
 ```math
 \mathcal R(\rho)=E^\dagger\rho E
-+\operatorname{tr}[(I-P)\rho]\cdot\frac{I_2}{2}.
++\mathrm{tr}[(I-P)\rho]\cdot\frac{I_2}{2}.
 ```
 
 It uses the inverse isometry on the code and prepares the fixed maximally mixed logical state after detecting leakage. It is completely positive and trace preserving: take one Kraus operator $`E^\dagger`$ and, for an orthonormal basis $`\{|v_r\rangle\}`$ of the 14-dimensional complement, take $`|a\rangle\langle v_r|/\sqrt2`$ for $`a=0,1`$. These 29 Kraus operators have completeness sum $`I_{16}`$. The code and direct map are both implemented and compared in the verification.
@@ -150,14 +150,14 @@ For a partition into a retained block and its complement, write a Hermitian coll
 \mathcal D[A+B](\rho)=-\frac12[A+B,[A+B,\rho]].
 ```
 
-Every term with an outer commutator by $`B`$ vanishes under partial trace. The other mixed term is $`[A,\operatorname{tr}_B[B,\rho]]`$ and also vanishes. Thus, for every operator $`X`$, including correlated states and non-Hermitian matrix units,
+Every term with an outer commutator by $`B`$ vanishes under partial trace. The other mixed term is $`[A,\mathrm{tr}_B[B,\rho]]`$ and also vanishes. Thus, for every operator $`X`$, including correlated states and non-Hermitian matrix units,
 
 ```math
-\operatorname{tr}_B\mathcal L_{AB}(X)
-=\mathcal L_A(\operatorname{tr}_B X),
+\mathrm{tr}_B\mathcal L_{AB}(X)
+=\mathcal L_A(\mathrm{tr}_B X),
 \qquad
-\operatorname{tr}_B e^{t\mathcal L_{AB}}(X)
-=e^{t\mathcal L_A}(\operatorname{tr}_B X).
+\mathrm{tr}_B e^{t\mathcal L_{AB}}(X)
+=e^{t\mathcal L_A}(\mathrm{tr}_B X).
 ```
 
 The verification constructs both linear maps and checks their equality on the entire 256-dimensional operator space of a four-spin system split into two pairs. The residual norm is approximately $`1.3\times10^{-15}`$. The separately traced cross dissipators vanish numerically. A nonuniform entangled Schmidt state evolved to $`t=0.37`$ gives a marginal-evolution residual below $`1.5\times10^{-15}`$. The linear-map identity, rather than the one example state, is the part that addresses arbitrary spectator correlations.
@@ -258,7 +258,7 @@ Its one-spin channel is
 
 ```math
 \mathcal P_t(\rho)=e^{-\eta t}\rho
-+(1-e^{-\eta t})\frac{I_2}{2}\operatorname{tr}\rho.
++(1-e^{-\eta t})\frac{I_2}{2}\mathrm{tr}\rho.
 ```
 
 Isotropic depolarization is covariant under every one-spin rotation. Its tensor power therefore commutes with every conditional product rotation generated by the common fields, and with the collective-noise channel. The combined evolution factors as

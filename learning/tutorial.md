@@ -50,8 +50,8 @@ Two different performance quantities will be needed. A block's entanglement fide
 
 ```math
 F_e(\mathcal N)
-=\operatorname{Tr}\!\left[
-\omega(\mathcal N\otimes\operatorname{id})(\omega)
+=\mathrm{Tr}\!\left[
+\omega(\mathcal N\otimes\mathrm{id})(\omega)
 \right].
 ```
 
@@ -61,7 +61,7 @@ The final memory criterion is stronger in its quantifiers. If $`\mathcal M`$ is 
 
 ```math
 \epsilon_{\mathrm{mem}}
-=\frac12\|\mathcal M-\operatorname{id}\|_\diamond.
+=\frac12\|\mathcal M-\mathrm{id}\|_\diamond.
 ```
 
 For a difference of channels, this is the largest output trace distance from the ideal state, allowing every input entangled with a reference. Trace distance here means one half of the trace norm of the difference. The [bridge's explicit definition](anchor_bridge.md#fidelity-and-complete-channel-error) supplies the reference formulation. A local Bell-overlap bound will reach this final criterion through twirling and exact error correction; we will not identify the two quantities directly.
@@ -71,9 +71,9 @@ For a difference of channels, this is the largest output trace distance from the
 An inner encoder is an isometry $`E_b`$ from logical states into a physical block $`b`$. Its image projector is $`Q_b=E_bE_b^\dagger`$. Noise can carry a state outside that image, which is called leakage. A complete decoder must say what happens to those outcomes. The decoder used here is
 
 ```math
-\operatorname{Dec}_b(Y)
+\mathrm{Dec}_b(Y)
 =E_b^\dagger YE_b
-+\operatorname{Tr}[(I-Q_b)Y]\tau_b,
++\mathrm{Tr}[(I-Q_b)Y]\tau_b,
 ```
 
 where $`\tau_b`$ is a fixed logical state. It recovers the encoded component and replaces leakage. This map is trace preserving; no favorable outcome is postselected.
@@ -146,8 +146,8 @@ This bound holds for every time. Since one bin has width $`1/B`$, its variance s
 The block calculation remains valid inside the full register. For a Hermitian collective jump split between a block and its complement, every commutator wholly on the traced-out complement has zero partial trace. Expanding the dissipator as a double commutator gives the exact identity
 
 ```math
-\operatorname{Tr}_T\circ\Phi_{n,t}
-=\Phi_{S,t}\circ\operatorname{Tr}_T.
+\mathrm{Tr}_T\circ\Phi_{n,t}
+=\Phi_{S,t}\circ\mathrm{Tr}_T.
 ```
 
 Thus each block's marginal channel is the one just analyzed, even when its input is entangled with the other blocks. The global errors remain correlated. The same identity accounts for unused spectator spins. [Theorem Section 5](../science/storage_theorem.md#5-exact-non-signalling-and-unused-spins) proves the statement for arbitrary operators and references.
@@ -249,7 +249,7 @@ The rate is $`1/20`$, and the same keyed encoding and recovery work throughout t
 
 ## 6. What the size-dependent theorem says — M23–M25
 
-Fix a target rate $`0<R<1`$ and target error $`0<\epsilon<1`$. Choose a sufficiently large but fixed even block size, a sufficiently small discarded fraction, and a sufficiently small fixed outer correction fraction. The finite estimates then give constants $`c_{R,\epsilon}>0`$ and $`n_0`$ such that every supplied list in $`[1,2]^n`$, for $`n\ge n_0`$, permits
+Fix a target rate $`0\lt R\lt 1`$ and target error $`0\lt \epsilon\lt 1`$. Choose a sufficiently large but fixed even block size, a sufficiently small discarded fraction, and a sufficiently small fixed outer correction fraction. The finite estimates then give constants $`c_{R,\epsilon}>0`$ and $`n_0`$ such that every supplied list in $`[1,2]^n`$, for $`n\ge n_0`$, permits
 
 ```math
 k\ge Rn,\qquad

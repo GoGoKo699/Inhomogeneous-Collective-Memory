@@ -36,7 +36,7 @@ The theorem bounds one-shot storage for powers of a finite-dimensional channel u
 Q_\epsilon(\Psi^t)\ge\log_2\max_k d_k,
 ```
 
-and, once $`\epsilon+\delta_t<1`$,
+and, once $`\epsilon+\delta_t\lt 1`$,
 
 ```math
 Q_\epsilon(\Psi^t)

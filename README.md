@@ -6,6 +6,14 @@ The result is an achievable size–rate–time law for a specified common-field 
 
 [Scientific overview](science/README.md) · [Learning route](learning/README.md) · [Exact theorem and proof](science/storage_theorem.md) · [Resources](science/resources.md) · [Reproduce the checks](verification/README.md) · [Related work](references/related_work.md)
 
+## Store and recover a quantum register
+
+1. **Prepare and encode.** Use the [certified coupling list](science/resources.md#2-exact-grouping-from-certified-finite-data) to group addressed spins with nearby couplings into complete blocks. Generate the fixed-rate Tanner code's CSS checks and Clifford encoder by [classical preprocessing](science/resources.md#4-endpoint-circuit-and-classical-computation-accounting). With fresh padding, apply the outer encoder to the unknown input. Sample one independent uniform Pauli per inner logical position and keep the classical key. Apply those Paulis, then use the known block unitaries to encode into the selected spin-zero subspaces.
+2. **Hold.** Reset or discard temporary quantum workspace before storage. Let the specified common X and Z fields act on the spins during the hold. The quantum state stays on the physical register and the classical key is retained for recovery.
+3. **Recover.** Invert each block unitary and measure its padding to check for leakage. Replace a leaked block with the specified fixed logical state. Undo the keyed Paulis, measure the outer CSS syndromes, decode them classically, apply the Pauli corrections and invert the outer encoder. A declared decoder failure returns a fixed valid state. Every branch returns a quantum register.
+
+The guarantee protects the returned state and its correlations with a reference, averaged over the key. The [resource counts](science/resources.md#4-endpoint-circuit-and-classical-computation-accounting) include addressed endpoint gates, workspace, classical decoding and reliable key storage. The [endpoint error budget](science/resources.md#5-a-composable-endpoint-error-budget) is separate from the error during the hold. The [20-spin example](learning/tutorial.md#a-complete-20-spin-example) works through the same sequence with a five-qubit outer code.
+
 ## The model and the main result
 
 There are $`n`$ physical qubits with an arbitrary supplied list $`g_j\in[1,2]`$. They evolve under
